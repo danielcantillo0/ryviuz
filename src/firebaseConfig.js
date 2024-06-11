@@ -3,7 +3,7 @@
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDTBvH4qbdCAwrKuJOdZoVIBl43kBdhZ48",
+    apiKey: "${{secrets.API_KEY }}",
 
     authDomain: "ryviuz-619f4.firebaseapp.com",
   
