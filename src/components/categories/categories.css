@@ -1,0 +1,56 @@
+/* categories.css */
+
+/* Existing styles */
+
+.category-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.category-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.category-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #61dafb;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.category-button:hover {
+  background-color: #21a1f1;
+}
+
+.category-button.active {
+  background-color: #007acc;
+  transform: scale(1.05);
+}
+
+.category-content {
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Set a wider maximum width for the content */
+  margin: 0 auto; /* Center the content horizontally */
+}

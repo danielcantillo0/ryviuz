@@ -1,0 +1,48 @@
+/* ReviewPreview.css */
+
+.review-preview {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .review-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .review-content {
+    padding: 1rem;
+    flex: 1;
+  }
+  
+  .review-content h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+  }
+  
+  .review-score {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+  
+  .review-text {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .see-more {
+    color: #61dafb;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .see-more:hover {
+    text-decoration: underline;
+  }
+  

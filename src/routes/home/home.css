@@ -1,0 +1,48 @@
+/* home.css */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #aaaaaa;
+  color: #333;
+}
+
+.Header {
+  text-align: center;
+}
+
+.Header h1 {
+  font-family: 'Pacifico', cursive; 
+  font-size: 48px; 
+  color: #0d5f06; 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+}
+
+.container {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container div {
+  margin: 1rem 0;
+}
+
+.container .categories {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.container .list {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container .contact {
+  font-size: 1rem;
+  color: #555;
+}

@@ -1,0 +1,75 @@
+/* ReviewEditor.css */
+.review-editor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.review-editor-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.review-editor-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group input[type="text"] {
+  width: calc(100% - 20px); /* Subtract padding from the width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input[type="number"]:focus,
+.form-group input[type="file"]:focus,
+.form-group input[type="text"]:focus {
+  border-color: #61dafb;
+  outline: none;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #21a1f1;
+}
+
+.error-message,
+.success-message {
+  margin-top: 10px;
+  color: #f44336; /* red for error, or #4caf50 for success */
+}
+

@@ -1,0 +1,26 @@
+/* ReviewList.css */
+
+.review-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .full-review {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .full-review h2 {
+    margin-top: 0;
+  }
+  
+  .full-review img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
