@@ -3,12 +3,15 @@ import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './ReviewEditor.css';
+import { collection, addDoc } from 'firebase/firestore';
+import { firestore } from '../../firebaseConfig';
 
 const ReviewEditor = () => {
   const [title, setTitle] = useState('');
   const [score, setScore] = useState('');
-  const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
   const [content, setContent] = useState('');
+  const [category, setCategory] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -22,11 +25,15 @@ const ReviewEditor = () => {
   };
 
   const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
+    setImageUrl(e.target.value);
   };
 
   const handleContentChange = (value) => {
     setContent(value);
+  };
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
   };
 
   const validateForm = () => {
@@ -48,34 +55,30 @@ const ReviewEditor = () => {
       return;
     }
     setIsSubmitting(true);
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('score', score);
-    formData.append('content', content);
-    if (image) {
-      formData.append('image', image);
-    }
 
     try {
-      // Replace this with your actual API call
-      await fakeApiCall(formData);
+      await addDoc(collection(firestore, 'reviews'), {
+        title,
+        score: parseFloat(score),
+        review: content,
+        image: imageUrl, 
+        category,
+        createdAt: new Date()
+      });
       setSuccessMessage('Review submitted successfully!');
       setTitle('');
       setScore('');
-      setImage(null);
+      setImageUrl('');
       setContent('');
+      setCategory('');
     } catch (error) {
+      console.log(error)
       setErrorMessage('Failed to submit review. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const fakeApiCall = (formData) => {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve('Success'), 2000);
-    });
-  };
 
   return (
     <div className="review-editor">
@@ -90,13 +93,25 @@ const ReviewEditor = () => {
         <div className="form-group">
           <label>
             Score:
-            <input type="number" value={score} onChange={handleScoreChange} min="0" max="10" required />
+            <input type="number" value={score} onChange={handleScoreChange} min="0" max="10" step="0.1" required />
           </label>
         </div>
         <div className="form-group">
           <label>
-            Image:
-            <input type="file" accept="image/*" onChange={handleImageChange} />
+            ImageUrl:
+            <input type="text" value={imageUrl} onChange={handleImageChange} />
+          </label>
+        </div>
+        <div className="form-group">
+        <label>
+            Category:
+            <select value={category} onChange={handleCategoryChange} required>
+              <option value="">Select a category</option>
+              <option value="Movies">Movies</option>
+              <option value="Books">Books</option>
+              <option value="Anime">Anime</option>
+              <option value="TV Series">TV Series</option>
+            </select>
           </label>
         </div>
         <div className="form-group">

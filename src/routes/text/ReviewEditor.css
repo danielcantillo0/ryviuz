@@ -35,7 +35,8 @@
 
 .form-group input[type="number"],
 .form-group input[type="file"],
-.form-group input[type="text"] {
+.form-group input[type="text"],
+.form-group select {
   width: calc(100% - 20px); /* Subtract padding from the width */
   padding: 10px;
   border: 1px solid #ccc;
@@ -46,7 +47,8 @@
 
 .form-group input[type="number"]:focus,
 .form-group input[type="file"]:focus,
-.form-group input[type="text"]:focus {
+.form-group input[type="text"]:focus 
+.form-group select:focus {
   border-color: #61dafb;
   outline: none;
 }

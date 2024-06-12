@@ -1,9 +1,11 @@
 // firebaseConfig.js
 
 import { initializeApp } from 'firebase/app';
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "${{secrets.API_KEY }}",
+    // eslint-disable-next-line
+    apiKey: "${{ secret.API_KEY }}", 
 
     authDomain: "ryviuz-619f4.firebaseapp.com",
   
@@ -19,5 +21,7 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
+const firestore = getFirestore(firebaseApp)
 
-export default firebaseApp;
+export {firebaseApp, firestore};
+

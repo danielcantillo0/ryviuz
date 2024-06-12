@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SignUp.css'; // Import SignUp.css for styling
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'; // Import Firebase Auth methods
-import firebaseApp from '../../firebaseConfig';
+import { firebaseApp } from '../../firebaseConfig';
 
 const auth = getAuth(firebaseApp); // Get Firebase Auth instance
 
