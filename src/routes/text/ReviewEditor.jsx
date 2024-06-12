@@ -5,6 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import './ReviewEditor.css';
 import { collection, addDoc } from 'firebase/firestore';
 import { firestore } from '../../firebaseConfig';
+import DOMPurify from 'dompurify';
 
 const ReviewEditor = () => {
   const [title, setTitle] = useState('');
@@ -56,11 +57,13 @@ const ReviewEditor = () => {
     }
     setIsSubmitting(true);
 
+    const sanitizedContent = DOMPurify.sanitize(content);
+
     try {
       await addDoc(collection(firestore, 'reviews'), {
         title,
         score: parseFloat(score),
-        review: content,
+        review: sanitizedContent,
         image: imageUrl, 
         category,
         createdAt: new Date()
